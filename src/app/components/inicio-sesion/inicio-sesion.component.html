@@ -1,1 +1,31 @@
-<p>inicio-sesion works!</p>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 border-0 rounded" style="max-width: 400px; width: 100%;" >
+        <h2 class="text-center text-primary mb-4">Iniciar Sesión</h2>
+
+        <!-- Campo Usuario-->
+        <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Usuario</label>
+            <input type="email" class="form-control rounded-pill" id="email" placeholder="nombre@ejemplo.com">
+        </div>
+
+        <!-- Campo Clave-->
+        <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Clave</label>
+            <input type="password" class="form-control rounded-pill" placeholder="******">
+            <div class="form-text">Tu clave debe de ser de 10 caracteres</div>
+        </div>
+
+        <!-- Botón de ingresar-->
+         <div class="d-grid">
+            <button type="submit" class="btn btn-primary rounded-pill">
+                🔑 Ingresar
+            </button>
+         </div>
+
+         <!--Rediccionamiento al registro-->
+         <div class="text-center mt-3">
+            <p class="textmuted">¿No tienes una cuenta? <a routerLink="/registro" class="text-primary fw-bold">Registrate aquí</a></p>
+         </div>
+    </div>
+</div>
+  
