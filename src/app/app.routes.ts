@@ -3,6 +3,7 @@ import { PaginaBienvenidaComponent } from './components/pagina-bienvenida/pagina
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
 import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +22,9 @@ export const routes: Routes = [
     {
         path:'registro',
         component:RegistroComponent
+    },
+    {
+        path:'servicios',
+        component:ServiciosComponent
     }
 ];
