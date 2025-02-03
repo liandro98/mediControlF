@@ -1,0 +1,98 @@
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4 border-0 rounded" style="max-width: 500px; width: 100%;">
+    <h2 class="text-center text-primary mb-4">📄 Carga tu receta</h2>
+
+    <!-- Consultorio -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">🏥 Nombre del Consultorio</label>
+      <input type="text" class="form-control rounded">
+    </div>
+
+    <!-- Doctor -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">👨‍⚕️ Nombre del Doctor</label>
+      <input type="text" class="form-control rounded">
+    </div>
+
+    <!-- Fecha -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">📅 Fecha</label>
+      <input type="date" class="form-control rounded">
+    </div>
+
+    <!-- Diagnóstico -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">📝 Diagnóstico</label>
+      <textarea class="form-control rounded" rows="2"></textarea>
+    </div>
+
+    <!-- Teléfono -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">📞 Número de Teléfono</label>
+      <input type="number" class="form-control rounded">
+    </div>
+
+    <!-- Dirección -->
+    <div class="mb-3">
+      <label class="form-label fw-bold">📍 Dirección del Consultorio</label>
+      <input type="text" class="form-control rounded">
+    </div>
+
+    <!-- Botón para abrir el modal -->
+    <div class="text-center mt-3">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMedicamento">
+        ➕ Agregar Medicamento
+      </button>
+    </div>
+
+    <!-- Lista de medicamentos -->
+    <div class="mt-4">
+      <h5 class="text-primary">💊 Medicamentos Agregados</h5>
+      <ul class="list-group" *ngIf="medicamentos.length > 0">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let med of medicamentos; let i = index">
+          {{ med.nombre }} - {{ med.dosis }} (Cada {{ med.cada }} horas)
+          <button class="btn btn-danger btn-sm" (click)="eliminarMedicamento(i)">🗑️</button>
+        </li>
+      </ul>
+      <p class="text-muted" *ngIf="medicamentos.length === 0">No hay medicamentos agregados.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar medicamento -->
+<div class="modal fade" id="modalMedicamento" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Agregar Medicamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form (submit)="agregarMedicamento()">
+          <div class="mb-3">
+            <label class="form-label fw-bold">💊 Nombre</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevoMedicamento.nombre" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">💉 Dosis</label>
+            <input type="text" class="form-control" name="dosis" [(ngModel)]="nuevoMedicamento.dosis" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">⏳ Cada (horas)</label>
+            <input type="number" class="form-control" name="cada" [(ngModel)]="nuevoMedicamento.cada" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">📆 Fecha Inicio</label>
+            <input type="date" class="form-control" name="fechaInicio" [(ngModel)]="nuevoMedicamento.fechaInicio" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">📆 Fecha Fin</label>
+            <input type="date" class="form-control" name="fechaFin" [(ngModel)]="nuevoMedicamento.fechaFin" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100"  data-bs-dismiss="modal">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

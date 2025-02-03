@@ -4,6 +4,8 @@ import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-p
 import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
+import { FormRecetaComponent } from './components/form-receta/form-receta.component';
+import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
 
 export const routes: Routes = [
     {
@@ -26,5 +28,13 @@ export const routes: Routes = [
     {
         path:'servicios',
         component:ServiciosComponent
+    },
+    {
+        path:'formReceta',
+        component:FormRecetaComponent
+    },
+    {
+        path:'medicamento',
+        component:MedicamentosComponent
     }
 ];
