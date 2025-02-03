@@ -1,1 +1,61 @@
-<p>pagina-principal works!</p>
+<app-barra-navegacion></app-barra-navegacion>
+
+<div class="container mt-4">
+  <h2 class="text-primary text-center">📋 Panel de Control</h2>
+  <p class="text-muted text-center">Monitorea tu consumo de medicamentos y gestiona tus recetas.</p>
+
+  <div class="row mt-4">
+    <!-- Sección de Medicamentos Activos -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">💊 Tus Medicamentos</h5>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Paracetamol 500mg <span class="badge bg-success">✅ Tomado</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Ibuprofeno 400mg <span class="badge bg-warning">⏳ Pendiente</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Amoxicilina 500mg <span class="badge bg-danger">⚠️ Atrasado</span>
+            </li>
+          </ul>
+          <div class="text-center mt-3">
+            <a routerLink="/medicamentos" class="btn btn-outline-primary">Ver Detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Estadísticas -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">📊 Estadísticas de Consumo</h5>
+          <p class="text-muted">Resumen de adherencia a tu tratamiento:</p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 100%;">100% Cumplido</div>
+          </div>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 15%;">15% Pendiente</div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 5%;">5% Omitido</div>
+          </div>
+          <div class="text-center mt-3">
+            <a routerLink="/estadisticas" class="btn btn-outline-primary">Ver Estadísticas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón para agregar receta -->
+  <div class="text-center mt-4">
+    <a routerLink="/cargar-receta" class="btn btn-primary btn-lg">
+      ➕ Agregar Nueva Receta
+    </a>
+  </div>
+</div>
+
