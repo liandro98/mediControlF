@@ -1,1 +1,31 @@
-<p>registro works!</p>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 border-0 rounded" style="max-width: 500px; width: 100%;">
+        <h2 class="text-center text-primary mb-4">Registro</h2>
+
+        <!--Campo Usario-->
+        <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Crea tu nombre de usuario</label>
+            <input type="email" class="form-control rounded-pill" id="email" placeholder="correo@ejemlo.com">
+        </div>
+
+        <!--Campo Clave-->
+        <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Crea tu clave</label>
+            <input type="password" class="form-control rounded-pill" placeholder="*****">
+        </div>
+
+        <div class="form-text">Estas son tus crendenciales para acceder al sitio. Es importante de que las recuerdes</div>
+
+        <!--Boton registro-->
+        <div class="d-grid p-4">
+            <button type="submit" class="btn btn-primary rounded-pill">
+                💾 Guardar registro
+            </button>
+        </div>
+
+        <!--Enlaces externos-->
+        <div class="text-center">
+            <p class="text-muted">¿Ya tienes una cuenta? <a routerLink="/login" class="text-primary fw-bold">Iniciar Sesion.</a></p>
+        </div>
+    </div>
+</div>
