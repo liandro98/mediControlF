@@ -2,30 +2,48 @@
     <div class="card shadow-lg p-4 border-0 rounded" style="max-width: 500px; width: 100%;">
         <h2 class="text-center text-primary mb-4">Registro</h2>
 
-        <!--Campo Usario-->
-        <div class="mb-3">
-            <label for="email" class="form-label fw-bold">Crea tu nombre de usuario</label>
-            <input type="email" class="form-control rounded-pill" id="email" placeholder="correo@ejemlo.com">
-        </div>
+        <!-- Mensajes de error o éxito -->
+        <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
+        <div *ngIf="successMessage" class="alert alert-success text-center">{{ successMessage }}</div>
 
-        <!--Campo Clave-->
-        <div class="mb-3">
-            <label for="password" class="form-label fw-bold">Crea tu clave</label>
-            <input type="password" class="form-control rounded-pill" placeholder="*****">
-        </div>
+        <form (ngSubmit)="registrar()">
+            <!-- Nombre Completo -->
+            <div class="mb-3">
+                <label for="nombreCompleto" class="form-label fw-bold">Nombre Completo</label>
+                <input type="text" class="form-control rounded-pill" id="nombreCompleto" [(ngModel)]="nombreCompleto" name="nombreCompleto" required>
+            </div>
 
-        <div class="form-text">Estas son tus crendenciales para acceder al sitio. Es importante de que las recuerdes</div>
+            <!-- Usuario -->
+            <div class="mb-3">
+                <label for="usuario" class="form-label fw-bold">Crea tu nombre de usuario</label>
+                <input type="text" class="form-control rounded-pill" id="usuario" [(ngModel)]="usuario" name="usuario" required>
+            </div>
 
-        <!--Boton registro-->
-        <div class="d-grid p-4">
-            <button type="submit" class="btn btn-primary rounded-pill">
-                💾 Guardar registro
-            </button>
-        </div>
+            <!-- Correo Electrónico -->
+            <div class="mb-3">
+                <label for="correoElec" class="form-label fw-bold">Correo Electrónico</label>
+                <input type="email" class="form-control rounded-pill" id="correoElec" [(ngModel)]="correoElec" name="correoElec" required>
+            </div>
 
-        <!--Enlaces externos-->
+            <!-- Clave -->
+            <div class="mb-3">
+                <label for="clave" class="form-label fw-bold">Crea tu clave</label>
+                <input type="password" class="form-control rounded-pill" id="clave" [(ngModel)]="clave" name="clave" required>
+            </div>
+
+            <div class="form-text">Estas son tus credenciales para acceder al sitio. Es importante que las recuerdes.</div>
+
+            <!-- Botón de registro -->
+            <div class="d-grid p-4">
+                <button type="submit" class="btn btn-primary rounded-pill">
+                    💾 Guardar registro
+                </button>
+            </div>
+        </form>
+
+        <!-- Enlace al login -->
         <div class="text-center">
-            <p class="text-muted">¿Ya tienes una cuenta? <a routerLink="/login" class="text-primary fw-bold">Iniciar Sesion.</a></p>
+            <p class="text-muted">¿Ya tienes una cuenta? <a routerLink="/login" class="text-primary fw-bold">Iniciar Sesión</a></p>
         </div>
     </div>
 </div>
