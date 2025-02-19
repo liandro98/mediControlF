@@ -1,0 +1,37 @@
+<app-barra-navegacion></app-barra-navegacion>
+
+<div class="container text-center mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg p-4 border-0 rounded" style="background-color: #f3e5f5;">
+        <h1 class="display-4" style="color: #6a1b9a;">🔔 Notificaciones</h1>
+        <p class="lead mt-3" style="color: #8e24aa;">
+          Aquí puedes ver los recordatorios y alertas importantes sobre tus actividades y avisos personalizados.
+        </p>
+        <hr>
+
+        <div class="text-start">
+          <h4 style="color: #7b1fa2;">📌 Últimas Notificaciones</h4>
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let notificacion of notificaciones" class="list-group-item" style="background-color: #ede7f6;">
+              <span class="fw-bold" style="color: #6a1b9a;">{{ notificacion.titulo }}</span>
+              <p class="mb-1" style="color: #8e24aa;">{{ notificacion.mensaje }}</p>
+              <small style="color: #7b1fa2;">{{ notificacion.fecha | date:'short' }}</small>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-4">
+          <h4 style="color: #7b1fa2;">📩 Mantente informado</h4>
+          <p style="color: #6a1b9a;">
+            Recibe notificaciones en tiempo real sobre eventos importantes. Activa las alertas en tu configuración.
+          </p>
+        </div>
+
+        <button (click)="limpiarNotificaciones()" class="btn btn-outline-danger mt-3" style="border-color: #8e24aa; color: #8e24aa;">
+          Borrar Notificaciones
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

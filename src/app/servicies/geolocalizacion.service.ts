@@ -30,7 +30,8 @@ export class GeolocalizacionService {
   }
 
   buscarTiendas(lat: number, lon: number): Observable<any> {
-    // Consulta Overpass para farmacias, supermercados y tiendas en un radio de 2000m
+    // Consulta Overpass para farmacias, supermercados y tiendas en un
+    //  radio de 2000m
     const query = `
       [out:json];
       (
