@@ -35,4 +35,14 @@ export class InicioSesionComponent {
       }
     );
   }
+
+  async loginWithGoogle() {
+    const user = await this.authService.loginWithGoogle();
+    if (user) {
+      console.log('Usuario autenticado:', user);
+      this.router.navigate(['/home']);  // Redirigir a la página principal
+    } else {
+      console.error('Error en la autenticación con Google');
+    }
+  }
 }
