@@ -4,11 +4,11 @@ import { RouterLink } from '@angular/router';
 import { MapaComponent } from '../mapa/mapa.component';
 
 @Component({
-  selector: 'app-pagina-principal',
-  standalone: true,
-  imports: [BarraNavegacionComponent, RouterLink, MapaComponent],
-  templateUrl: './pagina-principal.component.html',
-  styleUrl: './pagina-principal.component.css'
+    selector: 'app-pagina-principal',
+    standalone: true,
+    imports: [BarraNavegacionComponent, RouterLink, MapaComponent],
+    templateUrl: './pagina-principal.component.html',
+    styleUrl: './pagina-principal.component.css'
 })
 export class PaginaPrincipalComponent {
 

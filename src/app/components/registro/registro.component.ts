@@ -6,11 +6,11 @@ import { CommonModule } from '@angular/common';
 import { AuthServiceService } from '../../servicies/auth-service.service';
 
 @Component({
-  selector: 'app-registro',
-  standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule],
-  templateUrl: './registro.component.html',
-  styleUrl: './registro.component.css'
+    selector: 'app-registro',
+    standalone: true,
+    imports: [RouterLink, FormsModule, CommonModule],
+    templateUrl: './registro.component.html',
+    styleUrl: './registro.component.css'
 })
 export class RegistroComponent {
   usuario: string = '';

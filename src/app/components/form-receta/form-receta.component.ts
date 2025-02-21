@@ -5,11 +5,11 @@ import { BarraNavegacionComponent } from '../barra-navegacion/barra-navegacion.c
 
 
 @Component({
-  selector: 'app-form-receta',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './form-receta.component.html',
-  styleUrl: './form-receta.component.css'
+    selector: 'app-form-receta',
+    standalone: true,
+    imports: [FormsModule, CommonModule],
+    templateUrl: './form-receta.component.html',
+    styleUrl: './form-receta.component.css'
 })
 export class FormRecetaComponent {
   medicamentos: { nombre: string; dosis: string; cada: number; fechaInicio: string; fechaFin: string }[] = [];
