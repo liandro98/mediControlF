@@ -1,4 +1,5 @@
-
+<app-barra-navegacion></app-barra-navegacion>
+<br><br>
 <div class="container p-5"></div>
 <div class="container d-flex justify-content-center align-items-center vh-100 p-4">
   <div class="card shadow-lg p-4 border-0 rounded" style="max-width: 500px; width: 100%;">
@@ -59,7 +60,7 @@
       <p class="text-muted" *ngIf="medicamentos.length === 0">No hay medicamentos agregados.</p>
     </div>
 
-    <button type="submit" class="btn btn-primary">Guardar Receta</button>
+    <button type="button" class="btn btn-primary" (click)="guardarReceta()">Guardar Receta</button>
   </div>
 </div>
 
