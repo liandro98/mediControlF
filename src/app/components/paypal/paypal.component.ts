@@ -14,7 +14,7 @@ export class PaypalComponent {
       createOrder: (data: any, actions: any) => {
         return actions.order.create({
           purchase_units: [{
-            amount: { value: '10.00' }  // Cambia el valor según tu producto
+            amount: { value: '5.00' } // Las divisias estan en dolares
           }]
         });
       },
