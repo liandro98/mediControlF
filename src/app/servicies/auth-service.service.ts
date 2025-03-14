@@ -48,4 +48,9 @@ export class AuthServiceService {
   async logout2() {
     await this.afAuth.signOut();
   }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token'); // Obtener el token del localStorage
+    return !!token; // Devuelve true si el token existe, false si no
+  }
 }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { MedicamentoService } from '../../servicies/medicamento.service';
 import { CommonModule } from '@angular/common';
+import { BarraNavegacionComponent } from '../barra-navegacion/barra-navegacion.component';
 
 @Component({
     selector: 'app-medicamentos',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, BarraNavegacionComponent],
     templateUrl: './medicamentos.component.html',
     styleUrl: './medicamentos.component.css'
 })

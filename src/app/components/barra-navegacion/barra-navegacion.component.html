@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" routerLink="/">
-      <span class="fs-3">⚕️</span> 
+      <span class="fs-3">⚕️</span>
       <span class="ms-2 fw-bold">MediControl</span>
     </a>
 
@@ -11,18 +11,24 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
           <a class="nav-link" routerLink="/principal">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/servicios">Servicios</a>
         </li>
       </ul>
-      
-      <!-- Botones de acceso -->
-      <div class="ms-3">
+
+      <!-- Botones de acceso (Login y Registro) -->
+      <div class="ms-3" *ngIf="!authService.isAuthenticated()">
         <a routerLink="/login" class="btn btn-outline-primary me-2">Login</a>
         <a routerLink="/registro" class="btn btn-primary">Registro</a>
+      </div>
+
+      <!-- Mensaje de bienvenida y botón de Cerrar Sesión -->
+      <div class="ms-3" *ngIf="authService.isAuthenticated()">
+        <span class="me-2">Bienvenido, {{ nombreUsuario }}</span>
+        <button class="btn btn-danger btn-sm" (click)="cerrarSesion()">Cerrar Sesión</button>
       </div>
 
       <!-- Botón Funciones Premium -->
@@ -32,23 +38,29 @@
     </div>
   </div>
 </nav>
-
-<!-- Modal de Funciones Premium -->
-<div class="modal fade" id="premiumModal" tabindex="-1" aria-labelledby="premiumModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="premiumModal"
+  tabindex="-1"
+  aria-labelledby="premiumModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="premiumModalLabel">Funciones Premium</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <p>Accede a funciones premium con una suscripción única.</p>
-        
+
         <!-- Aquí va el componente de PayPal -->
         <app-paypal></app-paypal>
-        
       </div>
     </div>
   </div>
-</div>
-
