@@ -11,6 +11,7 @@ import firebase from 'firebase/compat/app';
 export class AuthServiceService {
 
   private apiUrl = 'http://localhost:3000';
+  //private apiUrl = 'https://medicontrolb.onrender.com';
 
   constructor(private http: HttpClient, private afAuth: AngularFireAuth,  private router: Router) {}
 

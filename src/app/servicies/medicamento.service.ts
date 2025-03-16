@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MedicamentoService {
   private apiUrl = 'http://localhost:3000/api/medicamentos';
+  //private apiUrl = 'https://medicontrolb.onrender.com/api/medicamentos';
 
   constructor(private http: HttpClient) { }
 

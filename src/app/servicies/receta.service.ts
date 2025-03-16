@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class RecetaService {
   private apiUrl = 'http://localhost:3000/api/recetas';
+  //private apiUrl = 'https://medicontrolb.onrender.com/api/recetas';
+  
   constructor(private http: HttpClient) { }
 
   registrarReceta(receta: any): Observable<any> {
