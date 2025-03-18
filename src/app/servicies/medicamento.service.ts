@@ -14,7 +14,7 @@ export class MedicamentoService {
   obtenerMedicamentos(): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('x-auth-token', token || ''); 
-    console.log(headers)
+ 
     return this.http.get(`${this.apiUrl}/consulta`, { headers });
   }
 }

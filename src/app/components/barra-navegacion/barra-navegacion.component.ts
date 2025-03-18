@@ -15,10 +15,24 @@ import { Router } from '@angular/router';
 })
 export class BarraNavegacionComponent {
     nombreUsuario : string = ""
+    esPremium: boolean = false;
 
     constructor(public authService:AuthServiceService, private router: Router){
         this.obtenerNombreUsuario()
     }
+
+    ngOnInit(): void {
+        if (this.authService.isAuthenticated()) {
+          this.authService.getPremiumStatus().subscribe({
+            next: (esPremium) => {
+              this.esPremium = esPremium;
+            },
+            error: (err) => {
+              console.error('Error al obtener el estado premium:', err);
+            },
+          });
+        }
+      }
 
     obtenerNombreUsuario(){
         const token = localStorage.getItem('token')

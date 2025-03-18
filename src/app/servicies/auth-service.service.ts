@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -87,5 +87,20 @@ export class AuthServiceService {
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token'); // Obtener el token del localStorage
     return !!token; // Devuelve true si el token existe, false si no
+  }
+
+  // Menejo de premium
+  activatePremium(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('x-auth-token', token || ''); 
+  
+    return this.http.post(`${this.apiUrl}/premium`, {}, { headers });
+  }
+
+  getPremiumStatus(): Observable<boolean> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('x-auth-token', token || ''); 
+  
+    return this.http.get<boolean>(`${this.apiUrl}/premium`, { headers });
   }
 }

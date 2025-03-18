@@ -28,12 +28,13 @@
       <!-- Mensaje de bienvenida y botón de Cerrar Sesión -->
       <div class="ms-3" *ngIf="authService.isAuthenticated()">
         <span class="me-2">Bienvenido, {{ nombreUsuario }}</span>
+        <span *ngIf="esPremium" class="badge bg-success">Premium</span>
         <button class="btn btn-danger btn-sm" (click)="cerrarSesion()">Cerrar Sesión</button>
       </div>
 
       <!-- Botón Funciones Premium -->
       <div class="ms-3">
-        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#premiumModal">Funciones Premium</button>
+        <button *ngIf="!esPremium" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#premiumModal">Funciones Premium</button>
       </div>
     </div>
   </div>
