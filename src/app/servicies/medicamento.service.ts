@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MedicamentoService {
-  private apiUrl = 'http://localhost:3000/api/medicamentos';
+  private apiUrl = 'http://localhost:3000/api/medicamento';
   //private apiUrl = 'https://medicontrolb.onrender.com/api/medicamentos';
 
   constructor(private http: HttpClient) { }
@@ -14,6 +14,7 @@ export class MedicamentoService {
   obtenerMedicamentos(): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('x-auth-token', token || ''); 
-    return this.http.get(this.apiUrl, { headers });
+    console.log(headers)
+    return this.http.get(`${this.apiUrl}/consulta`, { headers });
   }
 }

@@ -10,7 +10,7 @@ import firebase from 'firebase/compat/app';
 })
 export class AuthServiceService {
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/api/auth';
   //private apiUrl = 'https://medicontrolb.onrender.com';
 
   constructor(private http: HttpClient, private afAuth: AngularFireAuth,  private router: Router) {}
@@ -51,7 +51,7 @@ export class AuthServiceService {
           nombre: user.displayName
         };
 
-        this.http.post(`${this.apiUrl}/api/auth/google`, userData).subscribe({
+        this.http.post(`${this.apiUrl}/google`, userData).subscribe({
           next: (res: any) => {
             console.log('Usuario autenticado y guardado en el backend:', res);
 

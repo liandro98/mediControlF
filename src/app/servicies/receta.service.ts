@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RecetaService {
-  private apiUrl = 'http://localhost:3000/api/recetas';
+  private apiUrl = 'http://localhost:3000/api/receta';
   //private apiUrl = 'https://medicontrolb.onrender.com/api/recetas';
   
   constructor(private http: HttpClient) { }
@@ -14,6 +14,6 @@ export class RecetaService {
   registrarReceta(receta: any): Observable<any> {
     const token = localStorage.getItem('token'); 
     const headers = new HttpHeaders().set('x-auth-token', token || ''); 
-    return this.http.post(this.apiUrl, receta, { headers });
+    return this.http.post(`${this.apiUrl}/save`, receta, { headers });
   }
 }
