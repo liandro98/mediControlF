@@ -6,6 +6,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { FormRecetaComponent } from './components/form-receta/form-receta.component';
 import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 
 export const routes: Routes = [
     {
@@ -36,5 +37,9 @@ export const routes: Routes = [
     {
         path:'medicamento',
         component:MedicamentosComponent
+    },
+    {
+        path:'estadistica',
+        component:EstadisticasComponent
     }
 ];

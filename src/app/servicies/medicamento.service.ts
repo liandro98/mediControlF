@@ -17,4 +17,10 @@ export class MedicamentoService {
  
     return this.http.get(`${this.apiUrl}/consulta`, { headers });
   }
+
+  obtenerEstadisticas(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('x-auth-token', token || ''); 
+    return this.http.get(`${this.apiUrl}/estadisticas`, { headers });
+  }
 }

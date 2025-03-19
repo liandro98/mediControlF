@@ -31,7 +31,7 @@
       <div class="card shadow-sm">
         <div class="card-body">
           <h5 class="card-title">📊 Estadísticas de Consumo</h5>
-          <p class="text-muted">Resumen de adherencia a tu tratamiento:</p>
+          <p class="text-muted">Resumen de adherencia a tu tratamiento (exclusivo de usuarios premium)</p>
           <div class="progress mb-3">
             <div class="progress-bar bg-success" role="progressbar" style="width: 100%;">100% Cumplido</div>
           </div>
@@ -42,7 +42,9 @@
             <div class="progress-bar bg-danger" role="progressbar" style="width: 5%;">5% Omitido</div>
           </div>
           <div class="text-center mt-3">
-            <a routerLink="/estadisticas" class="btn btn-outline-primary">Ver Estadísticas</a>
+            @if (esPremium) {
+              <a routerLink="/estadistica" class="btn btn-outline-primary">Ver Estadísticas</a>
+            }
           </div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { RouterLink } from '@angular/router';
 import { MapaComponent } from '../mapa/mapa.component';
 import { MedicamentoService } from '../../servicies/medicamento.service';
 import { CommonModule } from '@angular/common';
+import { AuthServiceService } from '../../servicies/auth-service.service';
+
 
 @Component({
     selector: 'app-pagina-principal',
@@ -14,11 +16,22 @@ import { CommonModule } from '@angular/common';
 })
 export class PaginaPrincipalComponent {
     medicamentos: any[] = [];
+    esPremium: boolean = false;
 
-  constructor(private medicamentoService: MedicamentoService) {}
+  constructor(private medicamentoService: MedicamentoService, public authService:AuthServiceService) {}
 
   ngOnInit(): void {
     this.obtenerMedicamentos();
+    if (this.authService.isAuthenticated()) {
+      this.authService.getPremiumStatus().subscribe({
+        next: (esPremium) => {
+          this.esPremium = esPremium;
+        },
+        error: (err) => {
+          console.error('Error al obtener el estado premium:', err);
+        },
+      });
+    }
   }
 
   obtenerMedicamentos() {
