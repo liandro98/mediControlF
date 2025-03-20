@@ -7,6 +7,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { FormRecetaComponent } from './components/form-receta/form-receta.component';
 import { MedicamentosComponent } from './components/medicamentos/medicamentos.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { VideoLlamadaComponent } from './components/video-llamada/video-llamada.component';
 
 export const routes: Routes = [
     {
@@ -41,5 +42,9 @@ export const routes: Routes = [
     {
         path:'estadistica',
         component:EstadisticasComponent
+    },
+    {
+        path:'llamada',
+        component:VideoLlamadaComponent
     }
 ];

@@ -1,0 +1,9 @@
+<div class="video-container">
+    <!-- Video local -->
+    <div id="local-stream" class="video-stream"></div>
+  
+    <!-- Videos remotos -->
+    <div *ngFor="let stream of remoteStreams" [id]="'remote-stream-' + stream.getId()" class="video-stream"></div>
+  </div>
+  
+  <button (click)="leaveCall()" class="btn btn-danger">Salir de la llamada</button>
