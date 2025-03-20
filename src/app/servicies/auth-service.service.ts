@@ -38,25 +38,34 @@ export class AuthServiceService {
   // Inicio de sesion con google
   async loginWithGoogle() {
     try {
+      // Iniciar sesión con Google usando Firebase
       const result = await this.afAuth.signInWithPopup(
         new firebase.auth.GoogleAuthProvider()
       );
       const user = result.user;
 
       if (user) {
-        // Enviar la información del usuario al backend
+        // Preparar los datos del usuario para enviar al backend
         const userData = {
           uid: user.uid,
           email: user.email,
-          nombre: user.displayName
+          nombre: user.displayName,
         };
 
+        // Enviar los datos al backend
         this.http.post(`${this.apiUrl}/google`, userData).subscribe({
           next: (res: any) => {
-            console.log('Usuario autenticado y guardado en el backend:', res);
+            console.log('Respuesta del backend:', res);
+
+            // Guardar el token en el localStorage
+            if (res.token) {
+              localStorage.setItem('token', res.token);
+            }
 
             // Guardar la información del usuario en el localStorage
-            localStorage.setItem('user', JSON.stringify(res.user));
+            if (res.user) {
+              localStorage.setItem('user', JSON.stringify(res.user));
+            }
 
             // Redirigir al usuario a la página principal
             this.router.navigate(['/principal']);

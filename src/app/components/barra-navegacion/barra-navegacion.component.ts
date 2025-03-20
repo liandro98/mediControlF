@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
     templateUrl: './barra-navegacion.component.html',
     styleUrl: './barra-navegacion.component.css'
 })
+
 export class BarraNavegacionComponent {
     nombreUsuario : string = ""
     esPremium: boolean = false;
